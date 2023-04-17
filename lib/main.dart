@@ -14,11 +14,10 @@ class NotesApp extends StatelessWidget {
     return MaterialApp(
       title: 'Notes App',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        brightness: Brightness.dark,
-        // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        //useMaterial3: true,
-      ),
+      theme: ThemeData(brightness: Brightness.dark, fontFamily: 'Poppins'
+          // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          //useMaterial3: true,
+          ),
       home: const Scaffold(
         body: NotesView(),
       ),
