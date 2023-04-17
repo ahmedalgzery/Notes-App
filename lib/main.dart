@@ -18,13 +18,7 @@ class NotesApp extends StatelessWidget {
           // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           //useMaterial3: true,
           ),
-      home: Scaffold(
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          child: const Icon(Icons.add),
-        ),
-        body: const NotesView(),
-      ),
+      home: const NotesView()
     );
   }
 }
