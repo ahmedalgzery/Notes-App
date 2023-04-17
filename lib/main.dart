@@ -12,16 +12,16 @@ class NotesApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Notes App',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-       brightness: Brightness.dark,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        brightness: Brightness.dark,
+        // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        //useMaterial3: true,
       ),
-      home:  const NotesView(),
+      home: const Scaffold(
+        body: NotesView(),
+      ),
     );
   }
 }
-
-
-
