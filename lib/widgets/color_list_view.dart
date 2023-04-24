@@ -58,7 +58,7 @@ class _ColorListViewState extends State<ColorListView> {
               isSelected: currntIndex == index,
             ),
           ),
-          itemCount: 12,
+          itemCount: kColors.length,
           scrollDirection: Axis.horizontal,
         ),
       ),
