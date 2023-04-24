@@ -1,23 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:notes/constantes.dart';
 
 class ColorItem extends StatelessWidget {
-  const ColorItem({super.key});
-
+  const ColorItem({super.key, required this.isSelected, required this.color});
+  final bool isSelected;
+  final Color color;
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.all(3.0),
-      child: CircleAvatar(
-        radius: 38,
-        backgroundColor: Colors.amber,
-      ),
-    );
+    return isSelected
+        ? Padding(
+            padding: const EdgeInsets.all(3.0),
+            child: CircleAvatar(
+              radius: 38,
+              backgroundColor: Colors.white,
+              child: CircleAvatar(
+                radius: 34,
+                backgroundColor: color,
+              ),
+            ),
+          )
+        : Padding(
+            padding: const EdgeInsets.all(3.0),
+            child: CircleAvatar(
+              radius: 34,
+              backgroundColor: color,
+            ),
+          );
   }
 }
 
-class ColorListView extends StatelessWidget {
+class ColorListView extends StatefulWidget {
   const ColorListView({super.key});
 
+  @override
+  State<ColorListView> createState() => _ColorListViewState();
+}
+
+class _ColorListViewState extends State<ColorListView> {
+  int currntIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -25,8 +45,17 @@ class ColorListView extends StatelessWidget {
       child: SizedBox(
         height: 76,
         child: ListView.builder(
-          itemBuilder: (context, index) => const ColorItem(),
-          itemCount: 10,
+          itemBuilder: (context, index) => GestureDetector(
+            onTap: () {
+              currntIndex = index;
+              setState(() {});
+            },
+            child: ColorItem(
+              color: kColors[index],
+              isSelected: currntIndex == index,
+            ),
+          ),
+          itemCount: 12,
           scrollDirection: Axis.horizontal,
         ),
       ),
